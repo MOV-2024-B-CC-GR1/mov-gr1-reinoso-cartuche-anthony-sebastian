@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ccgr12024b_asrc"
+    namespace = "com.example.ccgr12024b_vaes"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.ccgr12024b_asrc"
+        applicationId = "com.example.ccgr12024b_vaes"
         minSdk = 27
         targetSdk = 34
         versionCode = 1

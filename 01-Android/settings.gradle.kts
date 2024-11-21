@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ccgr12024b_asrc"
+rootProject.name = "ccgr12024b_vaes"
 include(":app")
+ 
