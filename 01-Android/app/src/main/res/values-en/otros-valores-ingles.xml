@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="saludo_color">#2BA809</color>
+    <string name="horizon">!! In the Port !!</string>
+    <color name="saludo_color">#3F51B5</color>
+
+    <color name="en">#FF9800</color>
 </resources>
