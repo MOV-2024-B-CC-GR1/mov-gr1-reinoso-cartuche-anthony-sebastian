@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "714998023904",
+    "project_id": "cc-2024b-mov-gr1-rcas",
+    "storage_bucket": "cc-2024b-mov-gr1-rcas.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714998023904:android:0f154a971557f5141c3285",
+        "android_client_info": {
+          "package_name": "com.example.ccgr12024b_asrc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGty8Sn1tlXEb_t_1BhaosyOStW6Thlss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
