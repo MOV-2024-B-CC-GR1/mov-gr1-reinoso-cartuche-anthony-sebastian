@@ -1,3 +1,0 @@
-Samsung,Galaxy S21,999.99,2022-05-01,true;WhatsApp,2.21.5,50.5,true,Comunicaciones|Facebook,1.0.2,75.2,true,Redes Sociales
-Apple,iPhone 14,1299.99,2023-09-20,true;Safari,15.0,15.0,false,Navegador
-Xiaomi,Redmi Note 10,399.99,2021-02-15,true;MiFit,5.5,20.3,true,Salud

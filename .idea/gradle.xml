@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/00-Kotlin/kotlin-ejemplo" />
+        <option name="gradleJvm" value="corretto-15" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/00-Kotlin/kotlin-ejemplo" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/01-Android" />
+        <option name="gradleJvm" value="corretto-15" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Examen/CelularAplicativo" />
+        <option name="gradleJvm" value="corretto-15" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Examen/CelularAplicativo" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
