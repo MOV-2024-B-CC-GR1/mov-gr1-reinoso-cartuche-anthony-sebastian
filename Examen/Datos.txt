@@ -1,3 +1,5 @@
-Samsung,Galaxy S21,999.99,2022-05-01,true;WhatsApp,2.21.5,50.5,true,Comunicaciones|Facebook,1.0.2,75.2,true,Redes Sociales
-Nokia,Nokia A8 2017,325.0,2017-01-26,true;Safari,15.0,15.0,false,Navegador
-Xiaomi,Redmi Note 10,399.99,2021-02-15,true;MiFit,5.5,20.3,true,Salud
+Samsung,Android Galaxy S21,899.99,2022-03-15,true;WhatsApp,2.23.11.77,120.5,true,Comunicación|Instagram,292.0,80.3,true,Redes Sociales|Spotify,8.8.44,150.0,true,Entretenimiento
+Xiaomi,Android Redmi Note 10,499.99,2021-08-30,true;TikTok,29.6.4,200.0,true,Redes Sociales|Telegram,9.5.2,100.0,true,Comunicación|Zoom,5.15.0,90.0,true,Video Conferencia
+Huawei,Android P40 Pro,699.99,2022-06-10,true;Petal Maps,3.1.2,150.0,true,Navegación|Facebook,397.1,120.0,true,Redes Sociales|Adobe Reader,22.5.0,90.5,true,Productividad
+Xiaomi,Android Xiaomi 12 Pro,300.34,2022-12-26,true;Chrome,20.2,23.0,true,Navegador|Camara,20.33,13.0,true,Photo
+Iphone,Iphone XS,900.32,2021-11-21,true;Safari,12.34,23.0,true,Navegador|Instagram,12.34,34.0,true,Red Social
