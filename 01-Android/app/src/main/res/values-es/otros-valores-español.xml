@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="saludo_color">#FFEB3B</color>,
+    <color name="saludo_color">#FF7C3B</color>,
     <color name="es">#E91E63</color>
 </resources>
