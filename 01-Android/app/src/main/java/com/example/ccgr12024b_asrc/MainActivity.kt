@@ -1,5 +1,6 @@
 package com.example.ccgr12024b_asrc
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -22,10 +23,14 @@ class MainActivity : AppCompatActivity() {
             .setOnClickListener{
             irActividad(ACicloVida::class.java)
         }
+        val botonIrListView = findViewById<Button>(R.id.btn_ir_list_view)
+        botonIrListView.setOnClickListener{
+            irActividad(BListView::class.java)
+        }
     }
 
     fun irActividad(clase:Class<*>){
-        startActivity(intent(this,clase))
+        startActivity(Intent(this,clase))
     }
 
 
