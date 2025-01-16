@@ -16,57 +16,6 @@ import com.google.android.material.snackbar.Snackbar
 import javax.xml.transform.Result
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.cl_ciclo_vida)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-        val botonCicloVida = findViewById<Button>(R.id.btn_ciclo_vida)
-        botonCicloVida
-            .setOnClickListener{
-            irActividad(ACicloVida::class.java)
-        }
-        val botonIrListView = findViewById<Button>(R.id.btn_ir_list_view)
-        botonIrListView.setOnClickListener{
-            irActividad(BListView::class.java)
-        }
-
-        val botonImplicito = findViewById<Button>(R.id.btn_ir_intent_implicito)
-        botonImplicito
-            .setOnClickListener{
-                val intentConRespuesta = Intent(
-                    Intent.ACTION_PICK,
-                    ContactsContract.CommonDataKinds.Phone.CONTENT_URI
-                )
-                callbackContenidoIntentImplicito.launch(intentConRespuesta)
-            }
-
-        val botonExplicito = findViewById<Button>(R.id.btn_ir_intent_explicito)
-        botonExplicito
-            .setOnClickListener {
-                val intentExplicito = Intent(
-                    this, CIntentExplicitoParametros::class.java
-                )
-                intentExplicito.putExtra("nombre", "Adrian")
-                intentExplicito.putExtra("apellido", "Eguez")
-                intentExplicito.putExtra("edad", 34)
-                intentExplicito.putExtra("entrenador",
-                    BEntrenador(1, "Adrian", "Ejemplo")
-                )
-                callbackContenidoIntentExplicito.launch(intentExplicito)
-            }
-        val botonIrSqlite = findViewById<Button>(R.id.btn_sqlite)
-        botonIrSqlite
-            .setOnClickListener{
-                irActividad(ECrudEntrenador::class.java)
-            }
-
-    }
 
     fun mostrarSnackbar(texto: String){
         val snack = Snackbar.make(
@@ -113,6 +62,61 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    @SuppressLint("MissingInflatedId")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.cl_ciclo_vida)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        // Inicializar BDD
+        EBaseDeDatos.tablaEntrenador = EsqliteHelperEntrenador(this)
+
+        val botonCicloVida = findViewById<Button>(R.id.btn_ciclo_vida)
+        botonCicloVida
+            .setOnClickListener{
+            irActividad(ACicloVida::class.java)
+        }
+        val botonIrListView = findViewById<Button>(R.id.btn_ir_list_view)
+        botonIrListView.setOnClickListener{
+            irActividad(BListView::class.java)
+        }
+
+        val botonImplicito = findViewById<Button>(R.id.btn_ir_intent_implicito)
+        botonImplicito
+            .setOnClickListener{
+                val intentConRespuesta = Intent(
+                    Intent.ACTION_PICK,
+                    ContactsContract.CommonDataKinds.Phone.CONTENT_URI
+                )
+                callbackContenidoIntentImplicito.launch(intentConRespuesta)
+            }
+
+        val botonExplicito = findViewById<Button>(R.id.btn_ir_intent_explicito)
+        botonExplicito
+            .setOnClickListener {
+                val intentExplicito = Intent(
+                    this, CIntentExplicitoParametros::class.java
+                )
+                intentExplicito.putExtra("nombre", "Adrian")
+                intentExplicito.putExtra("apellido", "Eguez")
+                intentExplicito.putExtra("edad", 34)
+                intentExplicito.putExtra("entrenador",
+                    BEntrenador(1, "Adrian", "Ejemplo")
+                )
+                callbackContenidoIntentExplicito.launch(intentExplicito)
+            }
+        val botonIrSqlite = findViewById<Button>(R.id.btn_sqlite)
+        botonIrSqlite
+            .setOnClickListener{
+                irActividad(ECrudEntrenador::class.java)
+            }
+
+    }
 
     fun irActividad(clase:Class<*>){
         startActivity(Intent(this,clase))

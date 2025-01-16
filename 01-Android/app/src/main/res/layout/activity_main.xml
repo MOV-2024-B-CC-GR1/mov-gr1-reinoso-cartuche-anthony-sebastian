@@ -44,19 +44,23 @@
         android:id="@+id/btn_ir_intent_explicito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:text="Explicito"
+        app:layout_constraintBottom_toTopOf="@+id/btn_ciclo_vida"
         app:layout_constraintEnd_toEndOf="@+id/btn_ciclo_vida"
-        app:layout_constraintStart_toStartOf="@+id/btn_ciclo_vida"
-        tools:layout_editor_absoluteY="262dp" />
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="@+id/btn_ciclo_vida" />
 
     <Button
         android:id="@+id/btn_ir_intent_implicito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
         android:text="Implicito"
+        app:layout_constraintBottom_toTopOf="@+id/btn_ir_intent_explicito"
         app:layout_constraintEnd_toEndOf="@+id/btn_ir_intent_explicito"
-        app:layout_constraintStart_toStartOf="@+id/btn_ir_intent_explicito"
-        tools:layout_editor_absoluteY="199dp" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_ir_intent_explicito" />
 
     <Button
         android:id="@+id/btn_sqlite"

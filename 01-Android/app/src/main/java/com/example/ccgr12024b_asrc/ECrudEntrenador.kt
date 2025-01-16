@@ -13,7 +13,7 @@ class ECrudEntrenador : AppCompatActivity() {
 
     fun mostrarSnackbar(texto: String){
         val snack = Snackbar.make(
-            findViewById(R.id.cl_list_view),
+            findViewById(R.id.main),
             texto,
             Snackbar.LENGTH_INDEFINITE
         )

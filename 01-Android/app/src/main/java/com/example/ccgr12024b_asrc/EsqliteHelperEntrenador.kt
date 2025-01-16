@@ -14,7 +14,15 @@ class EsqliteHelperEntrenador(
     1
 ){
     override fun onCreate(db: SQLiteDatabase?) {
-        TODO("Not yet implemented")
+        val scriptSQLCrearTablaEntrenador =
+            """
+                CREATE TABLE ENTRENADOR(
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    nombre VARCHAR(50),
+                    descripcion VARCHAR(50)
+                )
+            """.trimIndent()
+        db?.execSQL(scriptSQLCrearTablaEntrenador)
     }
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int){}
@@ -44,6 +52,7 @@ class EsqliteHelperEntrenador(
                 "id=?", // consulta
                 parametrosConsultaDelete // parametros
             )
+        baseDatosEscritura.close()
         return if (resultadoEliminar.toInt() == -1) false else true
     }
     fun actualizarEntrenador(nombre: String, descripcion: String, id: Int): Boolean {
@@ -67,12 +76,29 @@ class EsqliteHelperEntrenador(
     fun consultarEntrenadorPorId(id: Int): BEntrenador? {
         val baseDatosLectura = readableDatabase
         val scriptConsultaLectura = """
-                    SELECT * FROM ENTRENADOR WHERE ID = ?
-    
-            """.trimIndent()
+            SELECT * FROM ENTRENADOR WHERE ID = ?
+        """.trimIndent()
         val parametrosConsultaLectura = arrayOf(id.toString())
-        return TODO("Provide the return value")
+        val resultadoConsultaLectura = baseDatosLectura
+            .rawQuery(
+                scriptConsultaLectura,
+                parametrosConsultaLectura
+            )
+        val existeAlMenosUno = resultadoConsultaLectura.moveToFirst()
+        if(existeAlMenosUno){
+            val arregloRespuesta = arrayListOf<BEntrenador>()
+            do{
+                val entrenador = BEntrenador(
+                    resultadoConsultaLectura.getInt(0), // 0 = id
+                    resultadoConsultaLectura.getString(1), // 1 = nombre
+                    resultadoConsultaLectura.getString(2) // 2 = descripcion
+                )
+                arregloRespuesta.add(entrenador)
+            }while(resultadoConsultaLectura.moveToNext())
+            return arregloRespuesta[0] // En otros casos devolvemos el arrreglo completo
+        }else{
+            return null
+        }
     }
-
 
 }
