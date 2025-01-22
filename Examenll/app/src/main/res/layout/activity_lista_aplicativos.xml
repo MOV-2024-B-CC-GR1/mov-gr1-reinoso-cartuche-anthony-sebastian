@@ -7,21 +7,39 @@
     android:layout_height="match_parent"
     tools:context=".ListaAplicativosActivity">
 
+    <TextView
+        android:id="@+id/marcaModeloTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:text="Marca y Modelo"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/listaAplicativos"
+        app:layout_constraintEnd_toEndOf="@+id/listaAplicativos"
+        app:layout_constraintStart_toStartOf="@+id/listaAplicativos"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:id="@+id/btnCrearAplicativo"
-        android:layout_width="288dp"
-        android:layout_height="0dp"
-        android:text="Crear Aplicativo"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="44dp" />
+        android:id="@+id/btnAgregarAplicativo"
+        android:layout_width="168dp"
+        android:layout_height="66dp"
+        android:text="Agregar Aplicativo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/listaAplicativos"
+        app:layout_constraintStart_toStartOf="@+id/listaAplicativos"
+        app:layout_constraintTop_toBottomOf="@+id/listaAplicativos" />
 
     <ListView
         android:id="@+id/listaAplicativos"
-        android:layout_width="297dp"
-        android:layout_height="546dp"
+        android:layout_width="335dp"
+        android:layout_height="434dp"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp"
-        tools:layout_editor_absoluteX="57dp"
-        tools:layout_editor_absoluteY="121dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

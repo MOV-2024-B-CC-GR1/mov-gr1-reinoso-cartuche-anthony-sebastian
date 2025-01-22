@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AgregarAplicativoActivity">
+
+    <EditText
+        android:id="@+id/etCategoriaAplicativo"
+        android:layout_width="283dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="40dp"
+        android:hint="Categoria del Aplicativo"
+        app:layout_constraintBottom_toTopOf="@+id/cbesGratis"
+        app:layout_constraintEnd_toEndOf="@+id/cbesGratis"
+        app:layout_constraintStart_toStartOf="@+id/cbesGratis" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Categoria:"
+        app:layout_constraintBottom_toTopOf="@+id/etCategoriaAplicativo"
+        app:layout_constraintEnd_toEndOf="@+id/etCategoriaAplicativo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etCategoriaAplicativo" />
+
+    <EditText
+        android:id="@+id/etPesoAplicativo"
+        android:layout_width="109dp"
+        android:layout_height="42dp"
+        android:hint="MB"
+        app:layout_constraintBottom_toTopOf="@+id/etCategoriaAplicativo"
+        app:layout_constraintEnd_toEndOf="@+id/etCategoriaAplicativo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etCategoriaAplicativo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.795" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="MB:"
+        app:layout_constraintBottom_toTopOf="@+id/etPesoAplicativo"
+        app:layout_constraintEnd_toEndOf="@+id/etPesoAplicativo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etPesoAplicativo" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Version:"
+        app:layout_constraintBottom_toTopOf="@+id/etVersionAplicativo"
+        app:layout_constraintEnd_toEndOf="@+id/etVersionAplicativo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etVersionAplicativo" />
+
+    <EditText
+        android:id="@+id/etVersionAplicativo"
+        android:layout_width="133dp"
+        android:layout_height="41dp"
+        android:hint="Version"
+        app:layout_constraintBottom_toTopOf="@+id/etCategoriaAplicativo"
+        app:layout_constraintEnd_toEndOf="@+id/etCategoriaAplicativo"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toStartOf="@+id/etCategoriaAplicativo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.793" />
+
+    <EditText
+        android:id="@+id/etNombreAplicativo"
+        android:layout_width="296dp"
+        android:layout_height="44dp"
+        android:hint="Nombre del Aplicativo"
+        app:layout_constraintBottom_toTopOf="@+id/etCategoriaAplicativo"
+        app:layout_constraintEnd_toEndOf="@+id/etCategoriaAplicativo"
+        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintStart_toStartOf="@+id/etCategoriaAplicativo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.487" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Nombre:"
+        app:layout_constraintBottom_toTopOf="@+id/etNombreAplicativo"
+        app:layout_constraintEnd_toEndOf="@+id/etNombreAplicativo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etNombreAplicativo" />
+
+    <CheckBox
+        android:id="@+id/cbesGratis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:text="Es Gratis?"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardarAplicativo"
+        app:layout_constraintEnd_toEndOf="@+id/btnGuardarAplicativo"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="@+id/btnGuardarAplicativo" />
+
+    <Button
+        android:id="@+id/btnGuardarAplicativo"
+        android:layout_width="148dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="116dp"
+        android:text="Guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar Aplicación"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="46dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

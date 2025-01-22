@@ -3,6 +3,7 @@ package com.example.ccgr12024b_asrc
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
@@ -123,7 +124,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun verAplicativos(celular: Celular) {
+        Log.d("MainActivity", "ID del celular seleccionado: ${celular.id}")
+
         val intent = Intent(this, ListaAplicativosActivity::class.java)
+        intent.putExtra("MARCA", celular.marca)
+        intent.putExtra("MODELO",celular.modelo )
         intent.putExtra("CELULAR_ID", celular.id)
         startActivity(intent)
     }

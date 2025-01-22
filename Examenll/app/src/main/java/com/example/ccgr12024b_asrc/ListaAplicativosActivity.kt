@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -17,7 +17,7 @@ class ListaAplicativosActivity : AppCompatActivity() {
     private lateinit var dbHelper: DatabaseHelper
     private lateinit var listView: ListView
     private lateinit var aplicativos: MutableList<String>
-    private var celularId: Int? = null
+    private var celularId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,17 +29,26 @@ class ListaAplicativosActivity : AppCompatActivity() {
             insets
         }
 
-        listView = findViewById(R.id.listaAplicativos)
         dbHelper = DatabaseHelper(this)
+        listView = findViewById(R.id.listaAplicativos)
+        val btnAgregarAplicativo = findViewById<Button>(R.id.btnAgregarAplicativo)
 
-        // Obtener el ID del celular enviado desde el MainActivity
-        celularId = intent.getIntExtra("CELULAR_ID", -1).takeIf { it != -1 }
 
-        if (celularId != null) {
-            cargarAplicativos(celularId!!)
-        } else {
-            Toast.makeText(this, "Error al cargar los aplicativos", Toast.LENGTH_SHORT).show()
-            finish() // Cierra la actividad si no se recibió un ID válido
+        celularId = intent.getIntExtra("CELULAR_ID", -1)
+
+        if (celularId == -1) {
+            Toast.makeText(this, "Error: no se encontró el celular.", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
+
+
+        cargarAplicativos(celularId)
+
+        btnAgregarAplicativo.setOnClickListener {
+            val intent = Intent(this, AgregarAplicativoActivity::class.java)
+            intent.putExtra("CELULAR_ID", celularId)
+            startActivity(intent)
         }
 
     }
@@ -47,14 +56,15 @@ class ListaAplicativosActivity : AppCompatActivity() {
 
     private fun cargarAplicativos(celularId: Int) {
         val db = dbHelper.readableDatabase
-        val cursor = db.rawQuery("SELECT nombre, descripcion FROM Aplicativo WHERE celular_id = ?", arrayOf(celularId.toString()))
+        val cursor = db.rawQuery("SELECT nombre, categoria FROM Aplicativo WHERE celular_id = ?", arrayOf(celularId.toString()))
+
 
         aplicativos = mutableListOf()
         if (cursor.moveToFirst()) {
             do {
                 val nombre = cursor.getString(0)
-                val descripcion = cursor.getString(1)
-                aplicativos.add("$nombre: $descripcion")
+                val categoria  = cursor.getString(1)
+                aplicativos.add("$nombre: $categoria")
             } while (cursor.moveToNext())
         }
         cursor.close()
@@ -62,6 +72,11 @@ class ListaAplicativosActivity : AppCompatActivity() {
         // Mostrar los aplicativos en el ListView
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, aplicativos)
         listView.adapter = adapter
+    }
+
+    override fun onResume() {
+        super.onResume()
+        cargarAplicativos(celularId)
     }
 
 

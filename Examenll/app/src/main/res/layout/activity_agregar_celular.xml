@@ -9,55 +9,21 @@
 
 
     <EditText
-        android:id="@+id/etMarca"
-        android:layout_width="314dp"
-        android:layout_height="43dp"
-        android:hint="Marca"
-        app:layout_constraintBottom_toTopOf="@+id/etModelo"
-        app:layout_constraintEnd_toEndOf="@+id/etModelo"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etModelo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.727" />
-
-    <EditText
         android:id="@+id/etModelo"
         android:layout_width="314dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="44dp"
         android:hint="Modelo"
         app:layout_constraintBottom_toTopOf="@+id/etPrecio"
         app:layout_constraintEnd_toEndOf="@+id/etPrecio"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/etPrecio" />
-
-    <EditText
-        android:id="@+id/etPrecio"
-        android:layout_width="315dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="16dp"
-        android:hint="Precio"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/etFechaLanzamiento"
-        app:layout_constraintEnd_toEndOf="@+id/etFechaLanzamiento"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/etFechaLanzamiento" />
-
-    <EditText
-        android:id="@+id/etFechaLanzamiento"
-        android:layout_width="326dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="28dp"
-        android:hint="Fecha de Lanzamiento (YYYY-MM-DD)"
-        app:layout_constraintBottom_toTopOf="@+id/cbDisponible"
-        app:layout_constraintEnd_toEndOf="@+id/cbDisponible"
-        app:layout_constraintStart_toStartOf="@+id/cbDisponible" />
 
     <CheckBox
         android:id="@+id/cbDisponible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="24dp"
         android:text="Disponible"
         app:layout_constraintBottom_toTopOf="@+id/btnGuardarCelular"
         app:layout_constraintEnd_toEndOf="@+id/btnGuardarCelular"
@@ -67,7 +33,7 @@
         android:id="@+id/btnGuardarCelular"
         android:layout_width="176dp"
         android:layout_height="64dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="100dp"
         android:text="Guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,5 +41,97 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etMarcaCelular"
         app:layout_constraintVertical_bias="0.223" />
+
+    <EditText
+        android:id="@+id/etMarca"
+        android:layout_width="314dp"
+        android:layout_height="43dp"
+        android:hint="Marca"
+        app:layout_constraintBottom_toTopOf="@+id/etModelo"
+        app:layout_constraintEnd_toEndOf="@+id/etModelo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etModelo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.854" />
+
+    <EditText
+        android:id="@+id/etFechaLanzamiento"
+        android:layout_width="326dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="32dp"
+        android:hint="Fecha de Lanzamiento (YYYY-MM-DD)"
+        app:layout_constraintBottom_toTopOf="@+id/cbDisponible"
+        app:layout_constraintEnd_toEndOf="@+id/cbDisponible"
+        app:layout_constraintStart_toStartOf="@+id/cbDisponible" />
+
+    <EditText
+        android:id="@+id/etPrecio"
+        android:layout_width="152dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="52dp"
+        android:hint="Precio"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/etFechaLanzamiento"
+        app:layout_constraintEnd_toEndOf="@+id/etFechaLanzamiento"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etFechaLanzamiento" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="302dp"
+        android:layout_height="45dp"
+        android:text="Agregar Dispositivo "
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#3F51B5"
+        app:layout_constraintBottom_toTopOf="@+id/etMarca"
+        app:layout_constraintEnd_toEndOf="@+id/etMarca"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/etMarca"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Marca:"
+        app:layout_constraintBottom_toTopOf="@+id/etMarca"
+        app:layout_constraintEnd_toEndOf="@+id/etMarca"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etMarca" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Modelo:"
+        app:layout_constraintBottom_toTopOf="@+id/etModelo"
+        app:layout_constraintEnd_toEndOf="@+id/etModelo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etModelo" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Precio:"
+        app:layout_constraintBottom_toTopOf="@+id/etPrecio"
+        app:layout_constraintEnd_toEndOf="@+id/etPrecio"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etPrecio" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Fecha de Lanzamiente (YYYY-MM-DD):"
+        app:layout_constraintBottom_toTopOf="@+id/etFechaLanzamiento"
+        app:layout_constraintEnd_toEndOf="@+id/etFechaLanzamiento"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etFechaLanzamiento" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

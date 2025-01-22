@@ -32,15 +32,13 @@ class DatabaseHelper (
                 nombre TEXT NOT NULL,
                 version TEXT NOT NULL,
                 tamanoMB REAL NOT NULL,
-                disponible INTEGER NOT NULL,
+                esgratis INTEGER NOT NULL,
                 categoria TEXT NOT NULL,
-                celularId INTEGER NOT NULL,
-                FOREIGN KEY (celularId) REFERENCES Celular (id)
+                celular_id INTEGER NOT NULL,
+                FOREIGN KEY (celular_id) REFERENCES Celular(id)
             )
             """
             )
-            // Insertar datos iniciales
-            insertarDatosEjemplo(db!!)
         }
 
 
@@ -50,37 +48,6 @@ class DatabaseHelper (
             onCreate(db)
         }
 
-        private fun insertarDatosEjemplo(db: SQLiteDatabase) {
-            db.execSQL(
-                """
-            INSERT INTO Celular (marca, modelo, precio, fechaLanzamiento, disponible)
-            VALUES
-            ('Samsung', 'Android Galaxy S21', 899.99, '2022-03-15', 1),
-            ('Apple', 'iPhone 14', 1199.99, '2023-02-20', 1),
-            ('Xiaomi', 'Android Redmi Note 10', 499.99, '2021-08-30', 1),
-            ('Huawei', 'Android P40 Pro', 699.99, '2022-06-10', 1)
-            """
-            )
-
-            db.execSQL(
-                """
-            INSERT INTO Aplicativo (nombre, version, tamanoMB, disponible, categoria, celularId)
-            VALUES
-            ('WhatsApp', '2.23.11.77', 120.5, 1, 'Comunicación', 1),
-            ('Instagram', '292.0', 80.3, 1, 'Redes Sociales', 1),
-            ('Spotify', '8.8.44', 150.0, 1, 'Entretenimiento', 1),
-            ('Safari', '16.3', 75.0, 1, 'Navegador', 2),
-            ('GarageBand', '2.3.12', 170.0, 1, 'Música', 2),
-            ('iMovie', '10.3.5', 250.0, 1, 'Video', 2),
-            ('TikTok', '29.6.4', 200.0, 1, 'Redes Sociales', 3),
-            ('Telegram', '9.5.2', 100.0, 1, 'Comunicación', 3),
-            ('Zoom', '5.15.0', 90.0, 1, 'Video Conferencia', 3),
-            ('Petal Maps', '3.1.2', 150.0, 1, 'Navegación', 4),
-            ('Facebook', '397.1', 120.0, 1, 'Redes Sociales', 4),
-            ('Adobe Reader', '22.5.0', 90.5, 1, 'Productividad', 4)
-            """
-            )
-        }
 
         fun agregarCelular(marca: String, modelo: String, precio: Double, fechaLanzamiento: String, disponible: Boolean): Long {
             val db = writableDatabase
@@ -121,10 +88,13 @@ class DatabaseHelper (
             return lista
         }
 
-        fun agregarAplicativo(nombre: String, categoria: String, celularId: Int): Long {
+        fun agregarAplicativo(nombre: String, version: String, tamanoMB: Double, esgratis: Boolean, categoria: String, celularId: Int): Long {
             val db = writableDatabase
             val valores = ContentValues().apply {
                 put("nombre", nombre)
+                put("version", version)
+                put("tamanoMB", tamanoMB)
+                put("esgratis",esgratis)
                 put("categoria", categoria)
                 put("celular_id", celularId)
             }
