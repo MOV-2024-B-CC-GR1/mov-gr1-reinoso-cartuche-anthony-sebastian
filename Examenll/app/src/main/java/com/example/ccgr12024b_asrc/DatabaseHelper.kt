@@ -66,12 +66,18 @@ class DatabaseHelper (
                 """
             INSERT INTO Aplicativo (nombre, version, tamanoMB, disponible, categoria, celularId)
             VALUES
-            ('WhatsApp', 'Comunicación', 1),
-            ('Instagram', 'Redes Sociales', 1),
-            ('Spotify',  'Entretenimiento', 1),
-            ('Safari',  'Navegador', 2),
-            ('GarageBand',  'Música', 2),
-            ('iMovie',  'Video', 2)
+            ('WhatsApp', '2.23.11.77', 120.5, 1, 'Comunicación', 1),
+            ('Instagram', '292.0', 80.3, 1, 'Redes Sociales', 1),
+            ('Spotify', '8.8.44', 150.0, 1, 'Entretenimiento', 1),
+            ('Safari', '16.3', 75.0, 1, 'Navegador', 2),
+            ('GarageBand', '2.3.12', 170.0, 1, 'Música', 2),
+            ('iMovie', '10.3.5', 250.0, 1, 'Video', 2),
+            ('TikTok', '29.6.4', 200.0, 1, 'Redes Sociales', 3),
+            ('Telegram', '9.5.2', 100.0, 1, 'Comunicación', 3),
+            ('Zoom', '5.15.0', 90.0, 1, 'Video Conferencia', 3),
+            ('Petal Maps', '3.1.2', 150.0, 1, 'Navegación', 4),
+            ('Facebook', '397.1', 120.0, 1, 'Redes Sociales', 4),
+            ('Adobe Reader', '22.5.0', 90.5, 1, 'Productividad', 4)
             """
             )
         }
