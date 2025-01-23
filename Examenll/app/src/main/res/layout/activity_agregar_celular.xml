@@ -23,24 +23,24 @@
         android:id="@+id/cbDisponible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="52dp"
         android:text="Disponible"
         app:layout_constraintBottom_toTopOf="@+id/btnGuardarCelular"
         app:layout_constraintEnd_toEndOf="@+id/btnGuardarCelular"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="@+id/btnGuardarCelular" />
 
     <Button
         android:id="@+id/btnGuardarCelular"
-        android:layout_width="176dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="134dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="84dp"
         android:text="Guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etMarcaCelular"
-        app:layout_constraintVertical_bias="0.223" />
+        app:layout_constraintTop_toBottomOf="@+id/etMarcaCelular" />
 
     <EditText
         android:id="@+id/etMarca"
@@ -78,17 +78,17 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="302dp"
-        android:layout_height="45dp"
-        android:text="Agregar Dispositivo "
+        android:layout_width="174dp"
+        android:layout_height="46dp"
+        android:text="Dispositivo "
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#3F51B5"
         app:layout_constraintBottom_toTopOf="@+id/etMarca"
         app:layout_constraintEnd_toEndOf="@+id/etMarca"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.564"
         app:layout_constraintStart_toStartOf="@+id/etMarca"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48" />
+        app:layout_constraintVertical_bias="0.471" />
 
     <TextView
         android:id="@+id/textView2"
