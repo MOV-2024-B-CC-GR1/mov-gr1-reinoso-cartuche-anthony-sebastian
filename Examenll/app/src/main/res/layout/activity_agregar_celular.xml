@@ -23,18 +23,17 @@
         android:id="@+id/cbDisponible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="32dp"
         android:text="Disponible"
-        app:layout_constraintBottom_toTopOf="@+id/btnGuardarCelular"
-        app:layout_constraintEnd_toEndOf="@+id/btnGuardarCelular"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="@+id/btnGuardarCelular" />
+        app:layout_constraintBottom_toTopOf="@+id/verFabricante"
+        app:layout_constraintEnd_toEndOf="@+id/verFabricante"
+        app:layout_constraintStart_toStartOf="@+id/verFabricante" />
 
     <Button
         android:id="@+id/btnGuardarCelular"
         android:layout_width="134dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="48dp"
         android:text="Guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,10 +57,11 @@
         android:id="@+id/etFechaLanzamiento"
         android:layout_width="326dp"
         android:layout_height="47dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="40dp"
         android:hint="Fecha de Lanzamiento (YYYY-MM-DD)"
         app:layout_constraintBottom_toTopOf="@+id/cbDisponible"
         app:layout_constraintEnd_toEndOf="@+id/cbDisponible"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/cbDisponible" />
 
     <EditText
@@ -133,5 +133,16 @@
         app:layout_constraintEnd_toEndOf="@+id/etFechaLanzamiento"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/etFechaLanzamiento" />
+
+    <Button
+        android:id="@+id/verFabricante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Ver Fabricante"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardarCelular"
+        app:layout_constraintEnd_toEndOf="@+id/btnGuardarCelular"
+        app:layout_constraintStart_toStartOf="@+id/btnGuardarCelular" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

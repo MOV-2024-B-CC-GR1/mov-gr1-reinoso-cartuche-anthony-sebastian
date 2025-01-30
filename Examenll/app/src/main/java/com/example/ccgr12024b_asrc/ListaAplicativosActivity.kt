@@ -44,7 +44,7 @@ class ListaAplicativosActivity : AppCompatActivity() {
             return
         }
 
-        // Mostrar marca y modelo
+
         mostrarMarcaYModelo()
 
         cargarAplicativos(celularId)

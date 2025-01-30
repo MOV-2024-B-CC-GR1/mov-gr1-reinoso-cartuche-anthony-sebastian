@@ -51,7 +51,6 @@ class AgregarAplicativoActivity : AppCompatActivity() {
             return
         }
 
-        // Mostrar marca y modelo
         mostrarMarcaYModelo()
 
         // Si es edición, cargar datos del aplicativo

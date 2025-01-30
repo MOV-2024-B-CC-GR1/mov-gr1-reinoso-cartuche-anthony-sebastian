@@ -4,6 +4,10 @@ import android.app.Activity
 import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -22,6 +26,7 @@ class AgregarCelularActivity : AppCompatActivity() {
     private lateinit var etFechaLanzamiento: EditText
     private lateinit var cbDisponible: CheckBox
     private lateinit var btnGuardar: Button
+    private lateinit var btnVerFabricante: Button
     private lateinit var dbHelper: DatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +41,7 @@ class AgregarCelularActivity : AppCompatActivity() {
         etFechaLanzamiento = findViewById(R.id.etFechaLanzamiento)
         cbDisponible = findViewById(R.id.cbDisponible)
         btnGuardar = findViewById(R.id.btnGuardarCelular)
+        btnVerFabricante = findViewById(R.id.verFabricante)
 
         dbHelper = DatabaseHelper(this)
 
@@ -45,7 +51,28 @@ class AgregarCelularActivity : AppCompatActivity() {
         if (celularId != null) {
             // Modo edición: cargar datos
             cargarDatosCelular(celularId!!)
+            verificarCamposLlenos()
         }
+
+
+        // Inicialmente ocultar el botón de "Ver Fabricante"
+        btnVerFabricante.visibility = Button.GONE
+
+        // Agregar TextWatcher a los campos de texto
+        val textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                verificarCamposLlenos()
+            }
+        }
+
+        // Asignar el TextWatcher a los campos de texto
+        etMarca.addTextChangedListener(textWatcher)
+        etModelo.addTextChangedListener(textWatcher)
+        etPrecio.addTextChangedListener(textWatcher)
+        etFechaLanzamiento.addTextChangedListener(textWatcher)
+
 
         btnGuardar.setOnClickListener {
             val marca = etMarca.text.toString()
@@ -72,6 +99,12 @@ class AgregarCelularActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+         // Ir al Maps
+        val botonGoogleMaps = findViewById<Button>(R.id.verFabricante)
+        botonGoogleMaps.setOnClickListener {
+            val intent = Intent(this, GGoogleMaps::class.java)
+            startActivity(intent)
+        }
 
     }
 
@@ -92,9 +125,34 @@ class AgregarCelularActivity : AppCompatActivity() {
             etPrecio.setText(precio.toString())
             etFechaLanzamiento.setText(fechaLanzamiento)
             cbDisponible.isChecked = disponible
+
+            // Verificar si los campos están llenos después de cargar los datos
+            verificarCamposLlenos()
+        } else {
+            Toast.makeText(this, "No se encontraron datos para el celular", Toast.LENGTH_SHORT).show()
         }
         cursor.close()
     }
+
+    private fun verificarCamposLlenos() {
+        val marca = etMarca.text.toString().trim()
+        val modelo = etModelo.text.toString().trim()
+        val precio = etPrecio.text.toString().trim()
+        val fechaLanzamiento = etFechaLanzamiento.text.toString().trim()
+
+        if (marca.isNotEmpty() && modelo.isNotEmpty() && precio.isNotEmpty() && fechaLanzamiento.isNotEmpty()) {
+            btnVerFabricante.visibility = Button.VISIBLE
+            println("Todos los campos están llenos. Botón visible.")
+        } else {
+            btnVerFabricante.visibility = Button.GONE
+            println("Faltan campos por llenar. Botón oculto.")
+        }
+        Handler(Looper.getMainLooper()).postDelayed({
+            verificarCamposLlenos()
+        }, 500) // Retardo de 500 ms
+    }
+
+
 
     private fun actualizarCelular(id: Int) {
         val db = dbHelper.writableDatabase

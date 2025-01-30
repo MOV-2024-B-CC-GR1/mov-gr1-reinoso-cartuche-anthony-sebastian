@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Examen ll</string>
+    <string name="title_activity_maps_holder">MapsActivityHolder</string>
 </resources>
